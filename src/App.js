@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from "react";
+import { RouterProvider } from "react-router-dom";
+
+import { ModeContext } from "./store/mode-store";
+import router from "./router/index";
+import "./App.css";
 
 function App() {
+  const { isDark } = useContext(ModeContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="App" data-theme={isDark ? "dark" : "light"}>
+      <RouterProvider router={router} />
+    </main>
   );
 }
 
