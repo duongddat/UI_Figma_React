@@ -28,11 +28,15 @@ function VistorChart() {
     datasets: [
       {
         data: [40, 28, 43, 30, 28, 45, 34],
-        backgroundColor: "rgba(88, 64, 187, 0.1)",
+        backgroundColor: "#5840BB",
         borderColor: "#5840BB",
         borderWidth: 2,
         pointBorderColor: "#5840bb",
-        fill: true,
+        fill: {
+          target: "origin",
+          above: "rgba(88, 64, 187, 0.1)",
+          below: "#ffff",
+        },
         tension: 0.6,
         radius: 3,
         hoverRadius: 10,
@@ -53,6 +57,12 @@ function VistorChart() {
         borderWidth: 1,
         padding: 15,
         yAlign: "bottom",
+        cornerRadius: {
+          topLeft: 15,
+          topRight: 5,
+          bottomLeft: 5,
+          bottomRight: 15,
+        },
         callbacks: {
           title: (tooltipItems) => {
             return `10.06 - ${tooltipItems[0].formattedValue * 25000}`;

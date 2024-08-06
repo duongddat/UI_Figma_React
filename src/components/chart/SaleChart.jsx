@@ -62,6 +62,12 @@ function SaleChart() {
         borderWidth: 1,
         padding: 15,
         yAlign: "bottom",
+        cornerRadius: {
+          topLeft: 15,
+          topRight: 5,
+          bottomLeft: 5,
+          bottomRight: 15,
+        },
         callbacks: {
           title: (tooltipItems) => {
             return `10.06 - ${tooltipItems[0].formattedValue * 25000}`;
