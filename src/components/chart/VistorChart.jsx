@@ -10,6 +10,7 @@ import {
   Legend,
   Filler,
 } from "chart.js";
+import { useRef } from "react";
 
 ChartJS.register(
   LineElement,
@@ -23,6 +24,16 @@ ChartJS.register(
 );
 
 function VistorChart() {
+  const chartRef = useRef(null);
+
+  const createGradient = (ctx) => {
+    const gradient = ctx.createLinearGradient(0, 0, 0, 90);
+    gradient.addColorStop(0, "rgba(88, 64, 187, 0.2)");
+    gradient.addColorStop(0.5, "rgba(88, 64, 187, 0.1)");
+    gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+    return gradient;
+  };
+
   const data = {
     labels: ["Mon", "Tue", "Web", "Thu", "Fri", "Sat", "Sun"],
     datasets: [
@@ -34,8 +45,11 @@ function VistorChart() {
         pointBorderColor: "#5840bb",
         fill: {
           target: "origin",
-          above: "rgba(88, 64, 187, 0.1)",
-          below: "#ffff",
+          above: (context) => {
+            const ctx = context.chart.ctx;
+            return createGradient(ctx);
+          },
+          below: "#fff",
         },
         tension: 0.6,
         radius: 3,
@@ -111,7 +125,7 @@ function VistorChart() {
     },
   };
 
-  return <Line data={data} options={options}></Line>;
+  return <Line ref={chartRef} data={data} options={options}></Line>;
 }
 
 export default VistorChart;
