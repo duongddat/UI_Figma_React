@@ -152,6 +152,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  flex: 1;
 }
 
 .sale-statistics__header {
@@ -174,10 +175,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
 }
 
 .sale-chart > canvas {
-  height: 100%;
+  height: 100% !important;
 }
 
 .see-more {

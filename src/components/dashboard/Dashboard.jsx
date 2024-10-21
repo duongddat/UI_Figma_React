@@ -17,7 +17,7 @@ function Dashboard() {
   return (
     <div className="row py-4 px-4 justify-content-between">
       <div className="col-lg-7 col-md-6 col-12">
-        <div className="d-flex flex-column mt-2 row-gap-45">
+        <div className="d-flex flex-column mt-2 row-gap-45 h-100">
           <div className={cx("summary-stats")}>
             <div className={cx("summary-order", "summary-content")}>
               <div className={cx("summary-icon")}>
